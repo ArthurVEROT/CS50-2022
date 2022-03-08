@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+            // TODO: Add code to check answers to questions
+            function CheckQuestion1(event)
+            {
+                document.getElementById('but1').style.backgroundColor = ""
+                document.getElementById('but2').style.backgroundColor = ""
+                document.getElementById('but3').style.backgroundColor = ""
+                document.getElementById('but4').style.backgroundColor = ""
+                document.getElementById('but5').style.backgroundColor = ""
+                document.getElementById('but6').style.backgroundColor = ""
+                var triggerObject = event.target;
+                var answer = "Statue of Unity in India";
+                if (triggerObject.innerHTML == answer) {
+                    triggerObject.style.backgroundColor = "green";
+                    document.getElementById('in_correct1').innerHTML = "Correct";
+                } else {
+                    triggerObject.style.backgroundColor = "red";
+                    document.getElementById('in_correct1').innerHTML = "Incorrect";
+                }
+            }
+            function CheckQuestion2(event)
+            {
+                if ((document.getElementById("field").value == "Napoléon") || (document.getElementById("field").value == "Napoleon")) {
+                    document.getElementById("field").style.backgroundColor = "green";
+                    document.getElementById('in_correct2').innerHTML = "Correct";
+                } else {
+                    document.getElementById("field").style.backgroundColor = "red";
+                    document.getElementById('in_correct2').innerHTML = "Incorrect";
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <!-- TODO: Add multiple choice question here -->
+                <h3>What is the biggest statue in the world?</h3>
+                    <button id='but1' onclick ="CheckQuestion1(event);">Statue of Liberty in USA</button>
+                    <button id='but2' onclick ="CheckQuestion1(event);">Statue of Unity in India</button>
+                    <button id='but3' onclick ="CheckQuestion1(event);">Laykyun Sekkya in Mynamar</button>
+                    <button id='but4' onclick ="CheckQuestion1(event);">Spring Temple Buddha in China</button>
+                    <button id='but5' onclick ="CheckQuestion1(event);">Christ the Redeemer in Brazil</button>
+                    <button id='but6' onclick ="CheckQuestion1(event);">Great Buddha in Thailand</button>
+                <p id="in_correct1"></p>
+            </div>
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <!-- TODO: Add free response question here -->
+                <h3>In France, what name is forbidden to give to your pig?</h3>
+                    <input id="field" type='text'>
+                    <button onclick ="CheckQuestion2(event);"> Check answer</button>
+                <p id="in_correct2"></p>
+            </div>
+        </div>
+    </body>
+</html>

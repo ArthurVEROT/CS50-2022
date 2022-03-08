@@ -1,0 +1,3 @@
+Open card
+Read card and look for a header
+Copy from the header till another header

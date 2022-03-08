@@ -1,0 +1,11 @@
+sort1 uses: bubble sort
+
+How do you know?: For the best case scenario it took few time to sort. Since its omega is n, and selection sort is n squared. I choose bubble sort.
+
+sort2 uses: merge sort
+
+How do you know?: For the random set of data, sort 2 was way faster than the two others. Since big O is n squared for selection and bubble sort, and is n log n for merge sort, i choose merge sort.
+
+sort3 uses: selection sort
+
+How do you know?: For the best case scenario it took more time to sort than they others. Since its omega is n squared, and omega selection sort is n squared and merge sort omega is n log n. I choose bubble sort.

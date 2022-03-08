@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+    <table class="table tablestriped">
+        <thead>
+            <tr>
+                <th class="text-start">Symbol</th>
+                <th class="text-start">Name</th>
+                <th class="text-start"></th>
+                <th class="text-end">Shares</th>
+                <th class="text-end">Price</th>
+                <th class="text-end">TOTAL</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for index in symbols %}
+                <tr>
+                    <td class="text-start">{{index.symbol}}</td>
+                    <td class="text-start">{{index.name}}</td>
+                    <td class="text-start">
+                        <form action="/" method="post">
+                            <input autocomplete="off" id="num_share" name="num_share" placeholder="n°shares"
+                            onfocus="this.placeholder=''" onblur="this.placeholder='n°shares'" type="number" min="0" size="8">
+                            <input id="symbol" name="symbol" type="hidden" value="{{index.symbol}}">
+                            <button class="btn btn-secondary" type="submit">Buy more</button>
+                        </form>
+                    </td>
+                    <td class="text-end">{{index.shares}}</td>
+                    <td class="text-end">{{"$%.2f"|format(index.price)}}</td>
+                    <td class="text-end">{{"$%.2f"|format(index.total)}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+
+        <tfoot>
+            <tr>
+                <td class="border-0 fw-bold text-end" colspan="5">Cash</td>
+                <td class="border-0 text-end">{{"$%.2f"|format(cash[0]["cash"])}}</td>
+            </tr>
+            <tr>
+                <td class="border-0 fw-bold text-end" colspan="5">TOTAL</td>
+                <td class="border-0 w-bold text-end">{{"$%.2f"|format(total_assets)}}</td>
+            </tr>
+        </tfoot>
+    </table>
+{% endblock %}

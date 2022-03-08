@@ -1,0 +1,1 @@
+window.alert("Navigate through the web site via the navigation bar on the top right");
